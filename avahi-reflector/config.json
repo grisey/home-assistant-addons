@@ -7,9 +7,9 @@
     "aarch64",
     "amd64"
   ],
-  "image": "pschmitt/home-assistant-addon-{arch}-avahi-reflector",
   "startup": "application",
   "boot": "auto",
+  "url": "https://github.com/grisey/home-assistant-addons",
   "options": {
     "allow_interfaces": null
   },

@@ -8,7 +8,7 @@ ALLOW_INTERFACES="$(jq --raw-output '.allow_interfaces // [] | join(",")' \
 
 # Edit avahi config
 # Enable reflector, disable DBUS
-sed -ir \
+sed -i -r \
   -e 's/^#?enable-reflector=.*/enable-reflector=yes/' \
   -e 's/^#?enable-dbus=.*/enable-dbus=no/' \
   "$AVAHI_CONFIG_PATH"
@@ -21,7 +21,7 @@ then
     echo "$ grep -v '^#' $AVAHI_CONFIG_PATH"
     grep -v '^#' "$AVAHI_CONFIG_PATH"
   } >&2
-  sed -ir \
+  sed -i -r \
     -e 's/^#?allow-interfaces=.*/allow-interfaces='"${ALLOW_INTERFACES}"'/' \
     "$AVAHI_CONFIG_PATH"
 fi
